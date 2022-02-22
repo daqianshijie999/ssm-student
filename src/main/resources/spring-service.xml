@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop
+        https://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--1.扫描service下的包-->
+    <context:component-scan base-package="com.srgstart.service"/>
+
+    <!--2.将我们的所有业务类，注入到spring，可以通过配置，或者注解实现-->
+    <!--用户业务类实现-->
+<!--    <bean id="UserServiceImpl" class="com.srgstart.service.UserServiceImpl">-->
+<!--        <property name="userMapper" ref="userMapper"/>-->
+<!--    </bean>-->
+<!--    &lt;!&ndash;分类业务实现&ndash;&gt;-->
+<!--    <bean id="CategoryServiceImpl" class="com.srgstart.service.CategoryServiceImpl">-->
+<!--        <property name="categoryMapper" ref="categoryMapper"/>-->
+<!--    </bean>-->
+<!--    &lt;!&ndash;分页、显示数据业务实现&ndash;&gt;-->
+<!--    <bean id="RouteServiceImpl" class="com.srgstart.service.RouteServiceImpl">-->
+<!--        <property name="routeMapper" ref="routeMapper"/>-->
+<!--        <property name="routeImgMapper" ref="routeImgMapper"/>-->
+<!--        <property name="sellerMapper" ref="sellerMapper"/>-->
+<!--    </bean>-->
+<!--    &lt;!&ndash;判断用户是否收藏&ndash;&gt;-->
+<!--    <bean id="FavoriteServiceImpl" class="com.srgstart.service.FavoriteServiceImpl">-->
+<!--        <property name="favoriteMapper" ref="favoriteMapper"/>-->
+<!--    </bean>-->
+<!--    <bean id="AdminServiceImpl" class="com.srgstart.service.AdminServiceImpl">-->
+<!--        <property name="categoryMapper" ref="categoryMapper"/>-->
+<!--    </bean>-->
+
+
+    <!--3.声明式事务配置-->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <!--注入数据源-->
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <!--4.AOP事务支持-->
+</beans>
